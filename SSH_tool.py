@@ -2,6 +2,7 @@
 #   Author:      Emma Gillespie
 #   Description: Add known ssh hosts and connect to them
 #   Resources:   https://realpython.com/python-command-line-arguments/#:~:text=argc%20is%20an%20integer%20representing,remaining%20elements%20of%20the%20array.
+#                https://thispointer.com/how-to-append-text-or-lines-to-a-file-in-python/
 
 #!/usr/bin/python3
 
@@ -25,6 +26,7 @@ def listSSH():
 
 #Function for removing saved ssh connections and saves/overwrites file
 def removeSSH():
+    #Displays the connection data to remove and asks if they are sure they want to remove it
     pass
 
 #Function for terminal user interface
@@ -54,7 +56,7 @@ if __name__ == "__main__":
             if len(sys.argv) == 5:
                 addSSH(sys.argv[2], sys.argv[3], sys.argv[4])
             else:
-                print("\n(usage: \"python3 ssh_tool.py -add name-connection username password\")\n")
+                print("\nusage: \"python3 ssh_tool.py -add name-connection username password\"\n")
         #Running the program with -con will connect to ssh name (usage: "python3 ssh_tool.py -con name-ssh") -c or -con
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
         #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
