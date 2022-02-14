@@ -9,12 +9,12 @@
 import sys
 
 #Function for add
-def addSSH(conName, username, password):
+def addSSH(conName, username, password, ip):
     #Write/append to sshconnections.txt file
     file_object = open('connections.txt', 'a')
-    file_object.write(f'{conName}:{username}:{password}\n')
+    file_object.write(f'{conName}:{username}:{password}:{ip}\n')
     file_object.close()
-    print(f"Connection was added. You can now connect to it.")
+    print("\nConnection was added. You can now connect to it. Using the -con argument\n")
 
 #Function for connect
 def connectSSH():
@@ -44,19 +44,19 @@ if __name__ == "__main__":
         print("\nusage: \"python3 ssh_tool.py -help\"\n")
     else:
         #Running the program with -help will list all command and usages (usage: "python3 ssh_tool.py -help") -h or -help
-        if sys.argv[1] == '-help':
-            print("\n-add will add new ssh connection \n\t(usage: \"python3 ssh_tool.py -add name-connection username password\")")
+        if sys.argv[1] == '-help' or sys.argv[1] == '-h':
+            print("\n-add will add new ssh connection \n\t(usage: \"python3 ssh_tool.py -add name-connection username password ip-address\")")
             print("-rem will remove the ssh connection \n\t(usage: \"python3 ssh_tool.py -rem name-connection\")")
             print("-con will connect to the given ssh name \n\t(usage: \"python3 ssh_tool.py -con name-connection\")")
             print("-list will list all ssh name of ssh connections \n\t(usage: \"python3 ssh_tool.py -list\")")
             print("-usri will open terminal user interface \n\t(usage: \"python3 ssh_tool.py -usri\")\n")
         
         #Running the program with -add will add a new one (usage: "python3 ssh_tool.py -add name-ssh username password") -a or -add
-        elif sys.argv[1] == "-add":
-            if len(sys.argv) == 5:
-                addSSH(sys.argv[2], sys.argv[3], sys.argv[4])
+        elif sys.argv[1] == "-add" or sys.argv[1] == '-a':
+            if len(sys.argv) == 6:
+                addSSH(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
             else:
-                print("\nusage: \"python3 ssh_tool.py -add name-connection username password\"\n")
+                print("\nusage: \"python3 ssh_tool.py -add name-connection username password ip-address\"\n")
         #Running the program with -con will connect to ssh name (usage: "python3 ssh_tool.py -con name-ssh") -c or -con
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
         #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
