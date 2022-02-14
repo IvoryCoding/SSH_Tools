@@ -1,6 +1,6 @@
 #   Date:        2022/02/14
 #   Author:      Emma Gillespie
-#   Description: Add known ssh hosts and connect to them
+#   Description: Add known ssh hosts and connect to them. Terminal command file to make ssh easier
 #   Resources:   https://realpython.com/python-command-line-arguments/#:~:text=argc%20is%20an%20integer%20representing,remaining%20elements%20of%20the%20array.
 #                https://thispointer.com/how-to-append-text-or-lines-to-a-file-in-python/
 
@@ -22,6 +22,10 @@ def connectSSH():
 
 #Function for listing the ssh names
 def listSSH():
+    pass
+
+#Function for reading the connection file. Returns a dictionary of all lines found
+def readConnections():
     pass
 
 #Function for removing saved ssh connections and saves/overwrites file
