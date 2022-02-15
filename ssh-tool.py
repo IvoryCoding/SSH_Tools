@@ -22,7 +22,10 @@ def connectSSH():
 
 #Function for listing the ssh names
 def listSSH():
-    pass
+    connections = readConnections()
+
+    for key in connections:
+        print(f'{key}:{connections[key][0]}:{connections[key][1]}:{connections[key][2]}\n')
 
 #Function for reading the connection file. Returns a dictionary of all lines found
 def readConnections():
@@ -44,10 +47,8 @@ def removeSSH(conName):
     for key in connections:
         file_object.write(f'{key}:{connections[key][0]}:{connections[key][1]}:{connections[key][2]}\n')
     file_object.close()
-    
-    print("\nConnection was removed. You can list connections using -list argument.\n")
 
-    pass
+    print("\nConnection was removed. You can list connections using -list argument.\n")
 
 #Function for terminal user interface
 def userInterface():
@@ -79,6 +80,11 @@ if __name__ == "__main__":
                 print("\nusage: \"python3 ssh_tool.py -add name-connection username password ip-address\"\n")
         #Running the program with -con will connect to ssh name (usage: "python3 ssh_tool.py -con name-ssh") -c or -con
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
+        elif sys.argv[1] == "-list" or sys.argv[1] == '-l':
+            if len(sys.argv) == 2:
+                listSSH()
+            else:
+                print("\nusage: \"python3 ssh_tool.py -list\"\n")
         #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
         #Running the program with -rem will remove the ssh connection (usage: "python3 ssh_tool.py -rem name-ssh") -r or -rem
         elif sys.argv[1] == "-rem" or sys.argv[1] == '-r':
