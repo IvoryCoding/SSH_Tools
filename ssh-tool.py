@@ -26,11 +26,27 @@ def listSSH():
 
 #Function for reading the connection file. Returns a dictionary of all lines found
 def readConnections():
-    pass
+    connectDict = {}
+    fileOBJ = open('connections.txt', 'r')
+    for line in fileOBJ:
+        temp = line.split(":")
+        connectDict[temp[0]] = [temp[1], temp[2], temp[3].rstrip("\n")]
+    fileOBJ.close()
+    return connectDict
 
 #Function for removing saved ssh connections and saves/overwrites file
-def removeSSH():
+def removeSSH(conName):
     #Displays the connection data to remove and asks if they are sure they want to remove it
+    connections = readConnections()
+    del connections[conName]
+    
+    file_object = open('connections.txt', 'w')
+    for key in connections:
+        file_object.write(f'{key}:{connections[key][0]}:{connections[key][1]}:{connections[key][2]}\n')
+    file_object.close()
+    
+    print("\nConnection was removed. You can list connections using -list argument.\n")
+
     pass
 
 #Function for terminal user interface
@@ -65,6 +81,11 @@ if __name__ == "__main__":
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
         #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
         #Running the program with -rem will remove the ssh connection (usage: "python3 ssh_tool.py -rem name-ssh") -r or -rem
+        elif sys.argv[1] == "-rem" or sys.argv[1] == '-r':
+            if len(sys.argv) == 3:
+                removeSSH(sys.argv[2])
+            else:
+                print("\nusage: \"python3 ssh_tool.py -rem name-ssh\"\n")
         
         #Debugging
         #for arg in enumerate(sys.argv):
