@@ -20,7 +20,7 @@ def addSSH(conName, username, password, ip):
 #Function for connect
 def connectSSH(conName):
     connections = readConnections()
-    commandString = f'sshpass -p {connections[conName][1]} {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
+    commandString = f'sshpass -p {connections[conName][1]} ssh {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
     print(commandString)
     os.system(commandString)
     pass
