@@ -7,6 +7,7 @@
 #!/usr/bin/python3
 
 import sys
+import os
 
 #Function for add
 def addSSH(conName, username, password, ip):
@@ -17,7 +18,11 @@ def addSSH(conName, username, password, ip):
     print("\nConnection was added. You can now connect to it. Using the -con argument\n")
 
 #Function for connect
-def connectSSH():
+def connectSSH(conName):
+    connections = readConnections()
+    commandString = f'sshpass -p {connections[conName][1]} {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
+    print(commandString)
+    os.system(commandString)
     pass
 
 #Function for listing the ssh names
@@ -79,6 +84,11 @@ if __name__ == "__main__":
             else:
                 print("\nusage: \"python3 ssh_tool.py -add name-connection username password ip-address\"\n")
         #Running the program with -con will connect to ssh name (usage: "python3 ssh_tool.py -con name-ssh") -c or -con
+        elif sys.argv[1] == "-con" or sys.argv[1] == '-c':
+            if len(sys.argv) == 3:
+                connectSSH(sys.argv[2])
+            else:
+                print("\nusage: \"python3 ssh_tool.py -con name-ssh\"\n")
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
         elif sys.argv[1] == "-list" or sys.argv[1] == '-l':
             if len(sys.argv) == 2:
