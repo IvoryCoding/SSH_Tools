@@ -67,41 +67,41 @@ def userInterface():
 if __name__ == "__main__":
     # Debug: print(f"Arguments count: {len(sys.argv)}")
     if len(sys.argv) <= 1:
-        print("\nusage: \"python3 ssh_tool.py -help\"\n")
+        print("\nusage: \"python3 ssh-tool.py -help\"\n")
     else:
         #Running the program with -help will list all command and usages (usage: "python3 ssh_tool.py -help") -h or -help
         if sys.argv[1] == '-help' or sys.argv[1] == '-h':
-            print("\n-add will add new ssh connection \n\t(usage: \"python3 ssh_tool.py -add name-connection username password ip-address\")")
-            print("-rem will remove the ssh connection \n\t(usage: \"python3 ssh_tool.py -rem name-connection\")")
-            print("-con will connect to the given ssh name \n\t(usage: \"python3 ssh_tool.py -con name-connection\")")
-            print("-list will list all ssh name of ssh connections \n\t(usage: \"python3 ssh_tool.py -list\")")
-            print("-usri will open terminal user interface \n\t(usage: \"python3 ssh_tool.py -usri\")\n")
+            print("\n-add will add new ssh connection \n\t(usage: \"python3 ssh-tool.py -add name-connection username password ip-address\")")
+            print("-rem will remove the ssh connection \n\t(usage: \"python3 ssh-tool.py -rem name-connection\")")
+            print("-con will connect to the given ssh name \n\t(usage: \"python3 ssh-tool.py -con name-connection\")")
+            print("-list will list all ssh name of ssh connections \n\t(usage: \"python3 ssh-tool.py -list\")")
+            print("-usri will open terminal user interface \n\t(usage: \"python3 ssh-tool.py -usri\")\n")
         
         #Running the program with -add will add a new one (usage: "python3 ssh_tool.py -add name-ssh username password") -a or -add
         elif sys.argv[1] == "-add" or sys.argv[1] == '-a':
             if len(sys.argv) == 6:
                 addSSH(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
             else:
-                print("\nusage: \"python3 ssh_tool.py -add name-connection username password ip-address\"\n")
+                print("\nusage: \"python3 ssh-tool.py -add name-connection username password ip-address\"\n")
         #Running the program with -con will connect to ssh name (usage: "python3 ssh_tool.py -con name-ssh") -c or -con
         elif sys.argv[1] == "-con" or sys.argv[1] == '-c':
             if len(sys.argv) == 3:
                 connectSSH(sys.argv[2])
             else:
-                print("\nusage: \"python3 ssh_tool.py -con name-ssh\"\n")
+                print("\nusage: \"python3 ssh-tool.py -con name-ssh\"\n")
         #Running the program with -list will list the ssh name of ssh connections (usage: "python3 ssh_tool.py -list") -l or -list
         elif sys.argv[1] == "-list" or sys.argv[1] == '-l':
             if len(sys.argv) == 2:
                 listSSH()
             else:
-                print("\nusage: \"python3 ssh_tool.py -list\"\n")
+                print("\nusage: \"python3 ssh-tool.py -list\"\n")
         #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
         #Running the program with -rem will remove the ssh connection (usage: "python3 ssh_tool.py -rem name-ssh") -r or -rem
         elif sys.argv[1] == "-rem" or sys.argv[1] == '-r':
             if len(sys.argv) == 3:
                 removeSSH(sys.argv[2])
             else:
-                print("\nusage: \"python3 ssh_tool.py -rem name-ssh\"\n")
+                print("\nusage: \"python3 ssh-tool.py -rem name-ssh\"\n")
         
         #Debugging
         #for arg in enumerate(sys.argv):
