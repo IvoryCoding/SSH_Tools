@@ -7,4 +7,4 @@ For linux machines install sshpass:
 sudo apt install sshpass
 
 For Windows and Mac:
-Uses OpenSSH which should already ccome on the system.
+Figruing out a better way to do it without putty but for now download and install putty and then can run connect command.
