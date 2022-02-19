@@ -8,6 +8,7 @@
 
 import sys
 import os
+import platform
 
 #Function for add
 def addSSH(conName, username, password, ip):
@@ -19,11 +20,13 @@ def addSSH(conName, username, password, ip):
 
 #Function for connect
 def connectSSH(conName):
-    connections = readConnections()
-    commandString = f'sshpass -p {connections[conName][1]} ssh {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
-    print(commandString)
-    os.system(commandString)
-    pass
+    if (platform.system() == 'linux'):
+        connections = readConnections()
+        commandString = f'sshpass -p {connections[conName][1]} ssh {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
+        os.system(commandString)
+    else:
+        print('Not currently availible on windows or mac. Try updating to latest version.')
+        pass
 
 #Function for listing the ssh names
 def listSSH():
