@@ -22,7 +22,7 @@ def addSSH(conName, username, password, ip):
 def connectSSH(conName):
     connections = readConnections()
 
-    if (platform.system() == 'linux'):
+    if (platform.system() == 'Linux'):
         commandString = f'sshpass -p {connections[conName][1]} ssh {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
         os.system(commandString)
     else:
