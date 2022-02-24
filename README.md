@@ -6,5 +6,5 @@
 For linux machines install sshpass:
 sudo apt install sshpass
 
-For Windows and Mac:
-Figruing out a better way to do it without putty but for now download and install putty and then can run connect command.
+For Windows:
+You may have to install plink however it should come by default.

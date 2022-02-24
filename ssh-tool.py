@@ -26,7 +26,7 @@ def connectSSH(conName):
         commandString = f'sshpass -p {connections[conName][1]} ssh {connections[conName][0]}@{connections[conName][2]}' #Need sshpass do sudo apt install sshpass
         os.system(commandString)
     else:
-        commandString = f'putty.exe -ssh {connections[conName][0]}@{connections[conName][2]} -pw {connections[conName][1]}'
+        commandString = f'plink {connections[conName][2]} -l {connections[conName][0]} -pw {connections[conName][1]}'
         os.system(commandString)
 
 #Function for listing the ssh names
