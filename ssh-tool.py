@@ -79,7 +79,7 @@ if __name__ == "__main__":
             print("-rem will remove the ssh connection \n\t(usage: \"python3 ssh-tool.py -rem name-connection\")")
             print("-con will connect to the given ssh name \n\t(usage: \"python3 ssh-tool.py -con name-connection\")")
             print("-list will list all ssh name of ssh connections \n\t(usage: \"python3 ssh-tool.py -list\")")
-            print("-usri will open terminal user interface \n\t(usage: \"python3 ssh-tool.py -usri\")\n")
+            print("-grph will open terminal user interface \n\t(usage: \"python3 ssh-tool.py -grph\")\n")
         
         #Running the program with -add will add a new one (usage: "python3 ssh_tool.py -add name-ssh username password") -a or -add
         elif sys.argv[1] == "-add" or sys.argv[1] == '-a':
@@ -99,17 +99,17 @@ if __name__ == "__main__":
                 listSSH()
             else:
                 print("\nusage: \"python3 ssh-tool.py -list\"\n")
-        #Running the program with -usri will open terminal user interface (usage: "python3 ssh_tool.py -usri") -ui or -usri
+        #Running the program with -grph will open terminal user interface (usage: "python3 ssh_tool.py -grph") -g or -grph
+        elif sys.argv[1] == "-grph" or sys.argv[1] == '-g':
+            if len(sys.argv) == 2:
+                print("Graphical")
+            else:
+                print("\nusage: \"python3 ssh_tool.py -grph\"\n")
         #Running the program with -rem will remove the ssh connection (usage: "python3 ssh_tool.py -rem name-ssh") -r or -rem
         elif sys.argv[1] == "-rem" or sys.argv[1] == '-r':
             if len(sys.argv) == 3:
                 removeSSH(sys.argv[2])
             else:
                 print("\nusage: \"python3 ssh-tool.py -rem name-ssh\"\n")
-        
-        #Debugging
-        #for arg in enumerate(sys.argv):
-        #    print(f"Argument: {arg}")
 
-#Add documentation for ssh_tools.py
 #Obfuscate program code
