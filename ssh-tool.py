@@ -61,8 +61,7 @@ def removeSSH(conName):
 
 #Function for terminal user interface
 def userInterface():
-    print("Welcome to SSH Tools terminal user interface. Select an option from below:")
-    # Loop giving choices to the user. q will quit the application
+    print("Launching graphical interface")
     # Option to add known ssh hosts (username, and password, and name ssh) saved to a file. Writes to the file and Password is encrypted or file is encrypted
     # Option to open terminal and ssh into machine (read file and connect based on choice. File lines saved to dict based on ssh-name)
     # Option to remove known ssh hosts (name ssh) saved to a file. Overwrites the file
